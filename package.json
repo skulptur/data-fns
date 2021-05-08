@@ -1,6 +1,6 @@
 {
   "name": "data-fns",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "skulptur",
   "license": "MIT",
   "module": "dist/data-fns.esm.js",
