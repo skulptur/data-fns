@@ -1,6 +1,6 @@
 ## `data-fns`
 
-Single paragraph about why this library exists
+Utility functions for working with data structures.
 
 ## Get started
 
