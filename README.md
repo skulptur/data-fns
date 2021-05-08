@@ -1,4 +1,4 @@
-## `library-name`
+## `data-fns`
 
 Single paragraph about why this library exists
 
@@ -7,32 +7,15 @@ Single paragraph about why this library exists
 Install
 
 ```bash
-yarn add library-name-fns
+yarn add data-fns
 # or
-npm install --save library-name-fns
+npm install --save data-fns
 ```
 
 Use
 
 ```typescript
-import { noop } from 'library-name-fns'
+import { getItemCyclic } from 'data-fns'
 
-console.log(noop()) // undefined
-```
-
-[Examples](https://github.com/skulptur/library-name-fns/tree/master/example)
-
-## API
-
-- Pure functions.
-- The argument order is optimized for partial application.
-
-Exports:
-
-### noop
-
-`() => void`
-
-```typescript
-const nothing = noop() // undefined
+console.log(getItemCyclic(array, index))
 ```
