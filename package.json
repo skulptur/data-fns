@@ -1,6 +1,6 @@
 {
   "name": "data-fns",
-  "version": "0.1.3",
+  "version": "0.1.5",
   "author": "skulptur",
   "license": "MIT",
   "module": "dist/data-fns.esm.js",
@@ -64,5 +64,8 @@
     "tsdx": "^0.14.1",
     "tslib": "^2.2.0",
     "typescript": "^4.2.4"
+  },
+  "dependencies": {
+    "unit-fns": "^0.1.6"
   }
 }
