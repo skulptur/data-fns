@@ -26,4 +26,14 @@ describe('mapAt', () => {
       'Index out of range'
     )
   })
+    
+  test('should return the original array if mapFn returns the same value', () => {
+    const myArray = [1, 2, 3, 4, 5]
+    const index = 2
+    const mapFn = (item: number) => item
+    const modifiedArray = mapAt(myArray, index, mapFn)
+    expect(modifiedArray).toBe(myArray)
+  })
+
+    
 })

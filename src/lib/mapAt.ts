@@ -8,9 +8,15 @@ export const mapAt = <T>(
   }
 
   const item = array[index]
+  const newItem = mapFn(item)
 
-  return array
-    .slice(0, index)
-    .concat([mapFn(item)])
-    .concat(array.slice(index + 1))
+  // don't map if item is same
+  if (newItem === item) {
+    return array
+  }
+
+  const newArray = array.slice()
+  newArray[index] = mapFn(array[index])
+
+  return newArray
 }
