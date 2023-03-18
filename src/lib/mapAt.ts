@@ -3,6 +3,10 @@ export const mapAt = <T>(
   index: number,
   mapFn: (item: T) => T
 ): Array<T> => {
+  if (index > array.length || index < 0) {
+    throw new Error('Index out of range')
+  }
+
   const item = array[index]
 
   return array
