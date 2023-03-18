@@ -1,6 +1,6 @@
 ## `data-fns`
 
-Utility functions for working with array data. The motivation to write this is usage in creative coding but the functions are generic and useful in many contexts.
+This library provides utility functions for working with array data that are useful in many contexts, including creative coding. It offers generic functions that perform common operations such as offsetting an array, generating an array based on a callback function, and chunking an array according to a pattern.
 
 ## Get started
 
@@ -88,7 +88,7 @@ const mapAt = <T>( array: Array<T>, index: number, mapFn: (item: T) => T ): Arra
 ```typescript
 const myArray = [1, 2, 3, 4, 5]
 const index = 2
-const items = mapAt(originalArray, index, (item) => item * 2)
+const items = mapAt(myArray, index, (item) => item * 2)
 // items = [1, 2, 6, 4, 5]
 ```
 

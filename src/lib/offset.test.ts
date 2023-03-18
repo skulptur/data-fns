@@ -27,4 +27,11 @@ describe('offset', () => {
     offset(input, offsetAmount)
     expect(input).toEqual([1, 2, 3, 4, 5])
   })
+
+  it('should handle negative offset amounts that wrap around the array correctly', () => {
+    const input = [1, 2, 3, 4, 5]
+    const offsetAmount = -1
+    const output = offset(input, offsetAmount)
+    expect(output).toEqual([5, 1, 2, 3, 4])
+  })
 })
