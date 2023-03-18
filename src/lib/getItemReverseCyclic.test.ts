@@ -23,7 +23,7 @@ describe('getItemReverseCyclic', () => {
     expect(getItemReverseCyclic(0, myArray)).toBeUndefined()
   })
 
-  it('returns the first element for negative indices', () => {
+  it('handles negative indices', () => {
     const myArray = [1, 2, 3]
     expect(getItemReverseCyclic(-1, myArray)).toEqual(1)
     expect(getItemReverseCyclic(-2, myArray)).toEqual(2)
