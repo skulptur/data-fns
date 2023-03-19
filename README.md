@@ -15,9 +15,9 @@ npm install --save data-fns
 Use
 
 ```typescript
-import { getItemCyclic } from 'data-fns'
+import { cyclic } from 'data-fns'
 
-console.log(getItemCyclic(array, index))
+console.log(cyclic(array, index))
 ```
 
 ## Documentation
@@ -94,7 +94,7 @@ const items = mapAt(myArray, index, (item) => item * 2)
 
 ### `getItem`
 
-The `getItem` utility function returns an item from an array based on a provided index and index mapping function. It is useful for cases where the desired behavior for selecting items from an array is not covered by the standard indexing operation. Use it in combination with for example `getItemCyclic`.
+The `getItem` utility function returns an item from an array based on a provided index and index mapping function. It is useful for cases where the desired behavior for selecting items from an array is not covered by the standard indexing operation. Use it in combination with for example `cyclic`.
 
 ```typescript
 <T>(index: number, array: Array<T>, indexMapFn: (index: number, length: number) => number) => T
@@ -111,19 +111,19 @@ const item = getItem(3, myArray, indexMapFn)
 
 ---
 
-### `getItemCyclic`
+### `cyclic`
 
-The `getItemCyclic` function retrieves an element from an array based on the given `index` value. If the `index` value exceeds the length of the array, the function will retrieve the element from the beginning of the array again and so on.
+The `cyclic` function is useful in combination with `getItem` to retrieve an element from an array based on the given `index` value. If the `index` value exceeds the length of the array, the function will retrieve the element from the beginning of the array again and so on.
 
 ```typescript
-<T>(index: number, array: Array<T>) => T
+(index: number, length: number) => number
 ```
 
 Example:
 
 ```typescript
 const myArray = [1, 2, 3, 4, 5]
-const items = times(7, (index) => getItemCyclic(index, myArray))
+const items = times(7, (index) => getItem(index, myArray, cyclic))
 // items = [1, 2, 3, 4, 5, 1, 2]
 ```
 
@@ -131,7 +131,7 @@ const items = times(7, (index) => getItemCyclic(index, myArray))
 
 ### `getItemReverseCyclic`
 
-Similar behaviour to `getItemCyclic` but reversed, starting from the last element and cycling back to the last element.
+Similar behaviour to `cyclic` but reversed, starting from the last element and cycling back to the last element.
 
 ```typescript
 <T>(index: number, array: Array<T>) => T

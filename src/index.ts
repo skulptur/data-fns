@@ -1,6 +1,6 @@
 export { getItemReverseCyclic } from './lib/getItemReverseCyclic'
 export { getItemPalindrome } from './lib/getItemPalindrome'
-export { getItemCyclic } from './lib/getItemCyclic'
+export { cyclic as getItemCyclic } from './lib/cyclic'
 export { offset } from './lib/offset'
 export { patternChunks } from './lib/patternChunks'
 export { mapAt } from './lib/mapAt'
