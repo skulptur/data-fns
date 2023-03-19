@@ -147,18 +147,18 @@ const items = times(7, (index) => getItemReverseCyclic(index, myArray))
 
 ---
 
-### `getItemPalindrome`
+### `palindrome`
 
-This function is used to retrieve an element from an array based on its index, but with a special behavior that alternates the direction of indexing when the end of the array is reached, forming a palindrome.
+This function is useful in combination with `getItem` to retrieve an element from an array based on its index, but with a special behavior that alternates the direction of indexing when the end of the array is reached, forming a palindrome.
 
 ```typescript
-<T>(index: number, array: Array<T>) => T
+(index: number, length: number) => number
 ```
 
 Example:
 
 ```typescript
 const myArray = [1, 2, 3]
-const items = times(7, (index) => getItemPalindrome(index, myArray))
+const items = times(7, (index) => getItem(index, myArray, palindrome))
 // items = [1, 2, 3, 2, 1, 2, 3]
 ```
