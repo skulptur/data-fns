@@ -129,19 +129,19 @@ const items = times(7, (index) => getItem(index, myArray, cyclic))
 
 ---
 
-### `getItemReverseCyclic`
+### `reverseCyclic`
 
 Similar behaviour to `cyclic` but reversed, starting from the last element and cycling back to the last element.
 
 ```typescript
-<T>(index: number, array: Array<T>) => T
+(index: number, length: number) => number
 ```
 
 Example:
 
 ```typescript
 const myArray = [1, 2, 3, 4, 5]
-const items = times(7, (index) => getItemReverseCyclic(index, myArray))
+const items = times(7, (index) => getItem(index, myArray, reverseCyclic))
 // items = [5, 4, 3, 2, 1, 5, 4]
 ```
 

@@ -1,4 +1,4 @@
-export { getItemReverseCyclic } from './lib/getItemReverseCyclic'
+export { reverseCyclic } from './lib/reverseCyclic'
 export { palindrome } from './lib/palindrome'
 export { cyclic } from './lib/cyclic'
 export { offset } from './lib/offset'
