@@ -27,7 +27,7 @@ console.log(getItemCyclic(array, index))
 The times function allows you to call a given callback function a specified number of times and collects the results of each function call in an array. This can be useful in scenarios where you need to generate an array of data calculated by the index.
 
 ```typescript
-const times = <T>(iterations: number, callback: (index: number) => T): Array<T> => {...}
+<T>(iterations: number, callback: (index: number) => T) => Array<T>
 ```
 
 Example:
@@ -44,7 +44,7 @@ const items = times(5, (index) => index * 2)
 The `offset` function takes an array and an amount and returns a new array with the elements offset by the given amount. The function is generic and can work with any type of array.
 
 ```typescript
-const offset = <T extends Array<any>>(list: T, amount: number): T => {...}
+<T extends Array<any>>(list: T, amount: number) => T
 ```
 
 Example:
@@ -56,14 +56,12 @@ const items = offset(array, offsetAmount)
 // items = [3, 4, 5, 1, 2]
 ```
 
----
-
 ### `patternChunks`
 
 The patternChunks function takes in an array of elements and a pattern array of numbers, and returns a new array consisting of sub-arrays created by chunking the original array according to the pattern. The pattern array specifies the size of each chunk. If the pattern array is shorter than the original array, the pattern is cycled repeatedly.
 
 ```typescript
-const patternChunks = <T>(array: Array<T>, pattern: Array<number>): Array<Array<T>> => {...}
+<T>(array: Array<T>, pattern: Array<number>) => Array<Array<T>>
 ```
 
 Example:
@@ -82,7 +80,7 @@ const result = patternChunks(myArray, myPattern)
 `mapAt` is a function that modifies the item located at the specified index of the array using the given function and returns a new array with the modified item.
 
 ```typescript
-const mapAt = <T>( array: Array<T>, index: number, mapFn: (item: T) => T ): Array<T> => {...}
+<T>( array: Array<T>, index: number, mapFn: (item: T) => T ) => Array<T>
 ```
 
 ```typescript
@@ -94,12 +92,31 @@ const items = mapAt(myArray, index, (item) => item * 2)
 
 ---
 
+### `getItem`
+
+The `getItem` utility function returns an item from an array based on a provided index and index mapping function. It is useful for cases where the desired behavior for selecting items from an array is not covered by the standard indexing operation. Use it in combination with for example `getItemCyclic`.
+
+```typescript
+<T>(index: number, array: Array<T>, indexMapFn: (index: number, length: number) => number) => T
+```
+
+Example:
+
+```typescript
+const myArray = ['a', 'b', 'c', 'd']
+const indexMapFn = (index, length) => (index + 1) % length
+const item = getItem(3, myArray, indexMapFn)
+// item = 'a'
+```
+
+---
+
 ### `getItemCyclic`
 
 The `getItemCyclic` function retrieves an element from an array based on the given `index` value. If the `index` value exceeds the length of the array, the function will retrieve the element from the beginning of the array again and so on.
 
 ```typescript
-const getItemCyclic = <T>(index: number, array: Array<T>): T => {...}
+<T>(index: number, array: Array<T>) => T
 ```
 
 Example:
@@ -117,7 +134,7 @@ const items = times(7, (index) => getItemCyclic(index, myArray))
 Similar behaviour to `getItemCyclic` but reversed, starting from the last element and cycling back to the last element.
 
 ```typescript
-const getItemReverseCyclic = <T>(index: number, array: Array<T>): T => {...}
+<T>(index: number, array: Array<T>) => T
 ```
 
 Example:
@@ -135,7 +152,7 @@ const items = times(7, (index) => getItemReverseCyclic(index, myArray))
 This function is used to retrieve an element from an array based on its index, but with a special behavior that alternates the direction of indexing when the end of the array is reached, forming a palindrome.
 
 ```typescript
-const getItemPalindrome = <T>(index: number, array: Array<T>): T => {...}
+<T>(index: number, array: Array<T>) => T
 ```
 
 Example:
