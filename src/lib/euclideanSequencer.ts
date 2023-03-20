@@ -7,14 +7,14 @@ const numSort = (a: number, b: number) => a - b
  * @param rotation The rotation of the sequence (default: 0).
  * @returns An array of indices representing the Euclidean rhythm sequence.
  */
-export const euclideanSequencer = (steps: number, notes: number, rotation = 0): number[] => {
+export const euclideanSequencer = (steps: number, notes: number, rotation = 0): Array<number> => {
   // Check that inputs are positive integers
   if (steps < 0 || notes < 0) {
     throw new Error('Inputs must be positive integers')
   }
 
   // Initialize an empty sequence array
-  const sequence: number[] = []
+  const sequence: Array<number> = []
 
   // Determine the maximum number of notes in the sequence
   const maxNotes = notes > steps ? steps : notes

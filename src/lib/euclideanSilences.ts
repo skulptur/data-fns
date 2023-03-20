@@ -7,12 +7,12 @@ import { euclideanSequencer } from './euclideanSequencer'
  * @param rotation The rotation of the rhythm (default: 0).
  * @returns An array of indices representing the silences in the Euclidean rhythm.
  */
-export const euclideanSilences = (steps: number, notes: number, rotation = 0): number[] => {
+export const euclideanSilences = (steps: number, notes: number, rotation = 0): Array<number> => {
   // Generate the Euclidean rhythm sequence using the euclideanSequencer function
   const noteSequence = euclideanSequencer(steps, notes, rotation)
 
   // Initialize an empty silence sequence array
-  const silenceSequence: number[] = []
+  const silenceSequence: Array<number> = []
 
   // Iterate through each step in the rhythm and add the index to the silence sequence if it is not in the note sequence
   for (let i = 0; i < steps; i++) {

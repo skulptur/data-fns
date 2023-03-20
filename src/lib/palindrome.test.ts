@@ -1,47 +1,33 @@
 import { palindrome } from './palindrome'
-import { getItem } from './getItem'
-import { times } from './times'
 
-describe('getItem', () => {
-  describe('when array is empty', () => {
-    it('returns undefined', () => {
-      const myArray: number[] = []
-      expect(getItem(0, myArray, palindrome)).toBeUndefined()
-    })
+describe('palindrome', () => {
+  it('should return 0 for sequence with only one element', () => {
+    expect(palindrome(0, 1)).toBe(0)
+    expect(palindrome(1, 1)).toBe(0)
+    expect(palindrome(-1, 1)).toBe(0)
   })
 
-  describe('when array has 1 element', () => {
-    it('returns the only element for any index', () => {
-      const myArray = [1]
-      expect(getItem(0, myArray, palindrome)).toEqual(1)
-      expect(getItem(1, myArray, palindrome)).toEqual(1)
-      expect(getItem(100, myArray, palindrome)).toEqual(1)
-    })
+  it('should map positive index to palindrome pattern', () => {
+    expect(palindrome(0, 3)).toBe(0)
+    expect(palindrome(1, 3)).toBe(1)
+    expect(palindrome(2, 3)).toBe(2)
+    expect(palindrome(3, 3)).toBe(1)
+    expect(palindrome(4, 3)).toBe(0)
+    expect(palindrome(5, 3)).toBe(1)
+    expect(palindrome(6, 3)).toBe(2)
+    expect(palindrome(7, 3)).toBe(1)
+    expect(palindrome(8, 3)).toBe(0)
   })
 
-  describe('when array has 2 elements', () => {
-    it('returns the elements in alternating order', () => {
-      const myArray = [1, 2]
-      expect(getItem(0, myArray, palindrome)).toEqual(1)
-      expect(getItem(1, myArray, palindrome)).toEqual(2)
-      expect(getItem(2, myArray, palindrome)).toEqual(1)
-      expect(getItem(3, myArray, palindrome)).toEqual(2)
-      expect(getItem(4, myArray, palindrome)).toEqual(1)
-      expect(getItem(100, myArray, palindrome)).toEqual(1)
-    })
-  })
-
-  describe('when array has 3 or more elements', () => {
-    it('returns the elements in a getItem order', () => {
-        const myArray = [1, 2, 3]
-        
-        expect(times(16, (index) => getItem(index, myArray, palindrome))).toEqual([ 1, 2, 3, 2, 1, 2, 3, 2, 1, 2, 3, 2, 1, 2, 3, 2, ])
-      
-    })
-
-    it('handles large indices correctly', () => {
-      const myArray = [1, 2, 3]
-      expect(getItem(1000, myArray, palindrome)).toEqual(1)
-    })
+  it('should map negative index to palindrome pattern', () => {
+    expect(palindrome(-0, 3)).toBe(0)
+    expect(palindrome(-1, 3)).toBe(1)
+    expect(palindrome(-2, 3)).toBe(2)
+    expect(palindrome(-3, 3)).toBe(1)
+    expect(palindrome(-4, 3)).toBe(0)
+    expect(palindrome(-5, 3)).toBe(1)
+    expect(palindrome(-6, 3)).toBe(2)
+    expect(palindrome(-7, 3)).toBe(1)
+    expect(palindrome(-8, 3)).toBe(0)
   })
 })

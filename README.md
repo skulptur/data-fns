@@ -39,23 +39,6 @@ const items = times(5, (index) => index * 2)
 
 ---
 
-### `offset`
-
-The `offset` function takes an array and an amount and returns a new array with the elements offset by the given amount. The function is generic and can work with any type of array.
-
-```typescript
-<T extends Array<any>>(list: T, amount: number) => T
-```
-
-Example:
-
-```typescript
-const myArray = [1, 2, 3, 4, 5]
-const offsetAmount = 2
-const items = offset(array, offsetAmount)
-// items = [3, 4, 5, 1, 2]
-```
-
 ### `patternChunks`
 
 The patternChunks function takes in an array of elements and a pattern array of numbers, and returns a new array consisting of sub-arrays created by chunking the original array according to the pattern. The pattern array specifies the size of each chunk. If the pattern array is shorter than the original array, the pattern is cycled repeatedly.
@@ -97,7 +80,7 @@ const items = mapAt(myArray, index, (item) => item * 2)
 The `getItem` utility function returns an item from an array based on a provided index and index mapping function. It is useful for cases where the desired behavior for selecting items from an array is not covered by the standard indexing operation. Use it in combination with for example `cyclic`.
 
 ```typescript
-<T>(index: number, array: Array<T>, indexMapFn: (index: number, length: number) => number) => T
+;<T>(index: number, array: Array<T>, indexMapFn: (index: number, length: number) => number) => T
 ```
 
 Example:
@@ -116,7 +99,7 @@ const item = getItem(3, myArray, indexMapFn)
 The `cyclic` function is useful in combination with `getItem` to retrieve an element from an array based on the given `index` value. If the `index` value exceeds the length of the array, the function will retrieve the element from the beginning of the array again and so on.
 
 ```typescript
-(index: number, length: number) => number
+;(index: number, length: number) => number
 ```
 
 Example:
@@ -134,7 +117,7 @@ const items = times(7, (index) => getItem(index, myArray, cyclic))
 Similar behaviour to `cyclic` but reversed, starting from the last element and cycling back to the last element.
 
 ```typescript
-(index: number, length: number) => number
+;(index: number, length: number) => number
 ```
 
 Example:
@@ -152,7 +135,7 @@ const items = times(7, (index) => getItem(index, myArray, reverseCyclic))
 This function is useful in combination with `getItem` to retrieve an element from an array based on its index, but with a special behavior that alternates the direction of indexing when the end of the array is reached, forming a palindrome.
 
 ```typescript
-(index: number, length: number) => number
+;(index: number, length: number) => number
 ```
 
 Example:
@@ -161,4 +144,22 @@ Example:
 const myArray = [1, 2, 3]
 const items = times(7, (index) => getItem(index, myArray, palindrome))
 // items = [1, 2, 3, 2, 1, 2, 3]
+```
+
+---
+
+### `binaryToIndices`
+
+The binaryToIndices function converts an array of binary digits (0 or 1) to an array of indices pointing to where the digit is 1.
+
+```typescript
+(binary: Array<number>) => Array<number>
+```
+
+Example:
+
+```typescript
+const binary = [1, 0, 1, 0, 0]
+const indices = binaryToIndices(binary)
+// indices = [0, 2]
 ```

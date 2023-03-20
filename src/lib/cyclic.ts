@@ -6,5 +6,6 @@
  */
 export const cyclic = (index: number, length: number): number => {
   // Calculate the mapped index based on the cyclic pattern
-  return index % length
+  const normalizedIndex = index % length
+  return Math.abs(normalizedIndex >= 0 ? normalizedIndex : length + normalizedIndex)
 }

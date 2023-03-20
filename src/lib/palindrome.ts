@@ -14,10 +14,11 @@ export const palindrome = (index: number, length: number): number => {
   }
 
   // Calculate the mapped index based on the palindrome pattern
-  const id = index % (2 * arraySize - 2)
+  const normalizedIndex = index % (2 * arraySize - 2)
+  const id = normalizedIndex >= 0 ? normalizedIndex : 2 * arraySize - 2 + normalizedIndex
 
   if (id < arraySize) {
-    return id
+    return Math.abs(id)
   } else {
     return 2 * arraySize - id - 2
   }
