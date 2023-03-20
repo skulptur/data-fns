@@ -99,11 +99,11 @@ Generates a sequence of values by applying a given function to an initial value 
 
 - iterations (`number`) - The number of iterations to perform.
 - initialValue (`T`) - The initial value of the sequence.
-- iterateFn (`(value: T) => T`) - The function to apply to the initial value and each subsequent value.
+- iteratorFn (`(value: T) => T`) - The function to apply to the initial value and each subsequent value.
 
 ```tsx
-const sequence = generateSequence(5, 1, value => value * 2);
-// The resulting sequence will be [1, 2, 4, 8, 16]
+generateSequence(5, 1, value => value * 2);
+// Returns [1, 2, 4, 8, 16]
 ```
 
 ### `cyclic` (function)
@@ -132,7 +132,7 @@ Maps an index to a palindrome pattern.
 ```tsx
 const length = 5;
 const indexes = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-const palindromeIndexes = indexes.map(index => palindrome(index, length));
+indexes.map(index => palindrome(index, length));
 // Returns [0, 1, 2, 1, 0, 1, 2, 1, 0, 1]
 ```
 
@@ -147,28 +147,25 @@ Returns the remainder of dividing the dividend by the divisor, with support for 
 
 ```tsx
 // Basic usage
-modulo(5, 3); // Returns 2
+modulo(5, 3);
+// Returns 2
 
 // Support for negative dividends
-modulo(-5, -3); // Returns 2
+modulo(-5, -3);
+// Returns 2
 
 // Support for negative divisors
-modulo(-5, 3); // Returns -2
+modulo(-5, 3);
+// Returns -2
 
 // Support for negative dividends and divisors
-modulo(5, -3); // Returns -2
+modulo(5, -3);
+// Returns -2
 ```
 
 ### `CellularAutomataRuleset` (type)
 
 ### `BoundaryFunction` (type)
-
-A function that maps an index to a boundary condition for use for example in an array index mapping.
-
-**Parameters:**
-
-- index - The original index.
-- length - The length of the sequence.
 
 ### `cellularAutomata` (function)
 
@@ -249,9 +246,14 @@ Converts an array of binary digits to an array of indices where the digit is 1.
 - binary (`number[]`) - An array of binary digits (0 or 1).
 
 ```tsx
-binaryToIndices([1, 0, 1, 1, 0, 1]); // Returns [0, 2, 3, 5]
-binaryToIndices([1, 1, 1, 1, 1]); // Returns [0, 1, 2, 3, 4]
-binaryToIndices([0, 0, 0, 0, 0]); // Returns []
+binaryToIndices([1, 0, 1, 1, 0, 1]);
+// Returns [0, 2, 3, 5]
+
+binaryToIndices([1, 1, 1, 1, 1]);
+// Returns [0, 1, 2, 3, 4]
+
+binaryToIndices([0, 0, 0, 0, 0]);
+// Returns []
 ```
 
 ### `indicesToBinary` (function)
@@ -265,13 +267,16 @@ Converts an array of indices to a binary array where the indices are 1 and the o
 
 ```tsx
 // Basic usage
-indicesToBinary([0, 2, 4], 5); // Returns [1, 0, 1, 0, 1]
+indicesToBinary([0, 2, 4], 5);
+// Returns [1, 0, 1, 0, 1]
 
 // Ignoring negative indices
-indicesToBinary([0, -1, 2, -2, 4], 5); // Returns [1, 0, 1, 0, 1]
+indicesToBinary([0, -1, 2, -2, 4], 5);
+// Returns [1, 0, 1, 0, 1]
 
 // Indices outside range are ignored
-indicesToBinary([0, 2, 4, 6], 5); // Returns [1, 0, 1, 0, 1]
+indicesToBinary([0, 2, 4, 6], 5);
+// Returns [1, 0, 1, 0, 1]
 ```
 
 <!-- INSERT GENERATED DOCS END -->

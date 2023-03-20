@@ -5,16 +5,20 @@
  * @returns The remainder of dividing the dividend by the divisor.
  * @example
  * // Basic usage
- * modulo(5, 3) // Returns 2
+ * modulo(5, 3)
+ * // Returns 2
  *
  * // Support for negative dividends
- * modulo(-5, -3) // Returns 2
+ * modulo(-5, -3)
+ * // Returns 2
  *
  * // Support for negative divisors
- * modulo(-5, 3) // Returns -2
+ * modulo(-5, 3)
+ * // Returns -2
  *
  * // Support for negative dividends and divisors
- * modulo(5, -3) // Returns -2
+ * modulo(5, -3)
+ * // Returns -2
  *
  */
 export const modulo = (dividend: number, divisor: number): number => {

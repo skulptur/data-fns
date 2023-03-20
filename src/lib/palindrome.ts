@@ -6,7 +6,7 @@
  * @example
  * const length = 5
  * const indexes = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
- * const palindromeIndexes = indexes.map((index) => palindrome(index, length))
+ * indexes.map((index) => palindrome(index, length))
  * // Returns [0, 1, 2, 1, 0, 1, 2, 1, 0, 1]
  */
 export const palindrome = (index: number, length: number): number => {
