@@ -15,151 +15,187 @@ npm install --save data-fns
 Use
 
 ```typescript
-import { cyclic } from 'data-fns'
+import { times } from 'data-fns'
 
-console.log(cyclic(array, index))
+console.log(times(5, (index) => index * 2))
 ```
 
 ## Documentation
 
-### `times`
+<!-- toc -->
 
-The times function allows you to call a given callback function a specified number of times and collects the results of each function call in an array. This can be useful in scenarios where you need to generate an array of data calculated by the index.
+- [`times` (function)](#times-function)
+- [`mapAt` (function)](#mapat-function)
+- [`getItem` (function)](#getitem-function)
+- [`generateSequence` (function)](#generatesequence-function)
+- [`cyclic` (function)](#cyclic-function)
+- [`palindrome` (function)](#palindrome-function)
+- [`modulo` (function)](#modulo-function)
+- [`CellularAutomataRuleset` (type)](#cellularautomataruleset-type)
+- [`BoundaryFunction` (type)](#boundaryfunction-type)
+- [`cellularAutomata` (function)](#cellularautomata-function)
+- [`euclideanSequencer` (function)](#euclideansequencer-function)
+- [`euclideanSilences` (function)](#euclideansilences-function)
+- [`patternChunks` (function)](#patternchunks-function)
+- [`binaryToIndices` (function)](#binarytoindices-function)
+- [`indicesToBinary` (function)](#indicestobinary-function)
 
-```typescript
-<T>(iterations: number, callback: (index: number) => T) => Array<T>
-```
+<!-- tocstop -->
 
-Example:
-
-```typescript
-const items = times(5, (index) => index * 2)
-// items = [0, 2, 4, 6, 8]
-```
-
----
-
-### `patternChunks`
-
-The patternChunks function takes in an array of elements and a pattern array of numbers, and returns a new array consisting of sub-arrays created by chunking the original array according to the pattern. The pattern array specifies the size of each chunk. If the pattern array is shorter than the original array, the pattern is cycled repeatedly.
-
-```typescript
-<T>(array: Array<T>, pattern: Array<number>) => Array<Array<T>>
-```
-
-Example:
-
-```typescript
-const myArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
-const myPattern = [2, 3]
-const result = patternChunks(myArray, myPattern)
-// result = [ ['a', 'b'], ['c', 'd', 'e'], ['f', 'g'], ['h', 'i', 'j'] ]
-```
+<!-- INSERT GENERATED DOCS START -->
 
 ---
 
-### `mapAt`
+### `times` (function)
 
-`mapAt` is a function that modifies the item located at the specified index of the array using the given function and returns a new array with the modified item.
+Calls a callback function a specified number of times and returns the results in an array.
 
-```typescript
-<T>( array: Array<T>, index: number, mapFn: (item: T) => T ) => Array<T>
+**Parameters:**
+
+- iterations (`number`) - The number of times to call the callback function.
+- callback (`(index: number) => T`) - The callback function to call.
+
+### `mapAt` (function)
+
+Maps an item in an array at a specified index to a new value.
+
+**Parameters:**
+
+- array (`T[]`) - The array to map the item in.
+- index (`number`) - The index of the item to map.
+- mapFn (`(item: T) => T`) - A function that maps the item to a new value.
+
+### `getItem` (function)
+
+Gets an item from an array based on a mapped index.
+
+**Parameters:**
+
+- index (`number`) - The index of the item to get.
+- array (`T[]`) - The array to get the item from.
+- indexMapFn (`(index: number, length: number) => number`) - A function that maps the index to a new index.
+
+### `generateSequence` (function)
+
+Generates a sequence of values by applying a given function to an initial value for a specified number of iterations.
+
+**Parameters:**
+
+- iterations (`number`) - The number of iterations to perform.
+- initialValue (`T`) - The initial value of the sequence.
+- iterateFn (`(value: T) => T`) - The function to apply to the initial value and each subsequent value.
+
+### `cyclic` (function)
+
+Maps an index to a cyclic pattern.
+
+**Parameters:**
+
+- index (`number`) - The original index.
+- length (`number`) - The length of the sequence.
+
+```tsx
+cyclic(6, 5) // Returns 1
 ```
 
-```typescript
-const myArray = [1, 2, 3, 4, 5]
-const index = 2
-const items = mapAt(myArray, index, (item) => item * 2)
-// items = [1, 2, 6, 4, 5]
+### `palindrome` (function)
+
+Maps an index to a palindrome pattern.
+
+**Parameters:**
+
+- index (`number`) - The original index.
+- length (`number`) - The length of the sequence.
+
+### `modulo` (function)
+
+Returns the remainder of dividing the dividend by the divisor, with support for negative dividends.
+
+**Parameters:**
+
+- dividend (`number`) - The dividend to divide.
+- divisor (`number`) - The divisor to divide by.
+
+### `CellularAutomataRuleset` (type)
+
+### `BoundaryFunction` (type)
+
+### `cellularAutomata` (function)
+
+Generates a new sequence using a one-dimensional cellular automaton.
+
+**Parameters:**
+
+- sequence (`number[]`) - The initial sequence.
+- ruleset (`CellularAutomataRuleset`) - The ruleset for the cellular automaton.
+- boundaryFn (`BoundaryFunction`) - The boundary function to use.
+
+```tsx
+generateSequence(10, sequence, cellularAutomata)
+// Returns [
+//  [0, 0, 0, 0, 1, 0, 0, 0],
+//  [0, 0, 0, 1, 1, 1, 0, 0],
+//  [0, 0, 1, 1, 0, 0, 1, 0],
+//  [0, 1, 1, 0, 1, 1, 1, 1],
+//  [0, 1, 0, 0, 1, 0, 0, 0],
+//  [1, 1, 1, 1, 1, 1, 0, 0],
+//  [1, 0, 0, 0, 0, 0, 1, 1],
+//  [0, 1, 0, 0, 0, 1, 1, 0],
+//  [1, 1, 1, 0, 1, 1, 0, 1],
+//  [0, 0, 0, 0, 1, 0, 0, 1],
+// ]
 ```
 
----
+### `euclideanSequencer` (function)
 
-### `getItem`
+Generates a Euclidean rhythm sequence.
 
-The `getItem` utility function returns an item from an array based on a provided index and index mapping function. It is useful for cases where the desired behavior for selecting items from an array is not covered by the standard indexing operation. Use it in combination with for example `cyclic`.
+**Parameters:**
 
-```typescript
-;<T>(index: number, array: Array<T>, indexMapFn: (index: number, length: number) => number) => T
+- steps (`number`) - The number of steps in the sequence.
+- notes (`number`) - The number of notes in the sequence.
+- rotation (`number`) - The rotation of the sequence (default: 0).
+
+### `euclideanSilences` (function)
+
+Generates a sequence of indices representing the "silences" (i.e. rests) in a Euclidean rhythm.
+
+**Parameters:**
+
+- steps (`number`) - The number of steps in the rhythm.
+- notes (`number`) - The number of notes in the rhythm.
+- rotation (`number`) - The rotation of the rhythm (default: 0).
+
+### `patternChunks` (function)
+
+Splits an array into chunks based on a pattern.
+
+**Parameters:**
+
+- array (`T[]`) - The array to split.
+- pattern (`number[]`) - The pattern to split the array with.
+
+### `binaryToIndices` (function)
+
+Converts an array of binary digits to an array of indices where the digit is 1.
+
+**Parameters:**
+
+- binary (`number[]`) - An array of binary digits (0 or 1).
+
+```tsx
+binaryToIndices([1, 0, 1, 1, 0, 1]) // Returns [0, 2, 3, 5]
+binaryToIndices([1, 1, 1, 1, 1]) // Returns [0, 1, 2, 3, 4]
+binaryToIndices([0, 0, 0, 0, 0]) // Returns []
 ```
 
-Example:
+### `indicesToBinary` (function)
 
-```typescript
-const myArray = ['a', 'b', 'c', 'd']
-const indexMapFn = (index, length) => (index + 1) % length
-const item = getItem(3, myArray, indexMapFn)
-// item = 'a'
-```
+Converts an array of indices to a binary array where the indices are 1 and the other digits are 0.
 
----
+**Parameters:**
 
-### `cyclic`
+- indices (`number[]`) - An array of indices.
+- length (`number`) - The length of the binary array to be returned.
 
-The `cyclic` function is useful in combination with `getItem` to retrieve an element from an array based on the given `index` value. If the `index` value exceeds the length of the array, the function will retrieve the element from the beginning of the array again and so on.
-
-```typescript
-;(index: number, length: number) => number
-```
-
-Example:
-
-```typescript
-const myArray = [1, 2, 3, 4, 5]
-const items = times(7, (index) => getItem(index, myArray, cyclic))
-// items = [1, 2, 3, 4, 5, 1, 2]
-```
-
----
-
-### `reverseCyclic`
-
-Similar behaviour to `cyclic` but reversed, starting from the last element and cycling back to the last element.
-
-```typescript
-;(index: number, length: number) => number
-```
-
-Example:
-
-```typescript
-const myArray = [1, 2, 3, 4, 5]
-const items = times(7, (index) => getItem(index, myArray, reverseCyclic))
-// items = [5, 4, 3, 2, 1, 5, 4]
-```
-
----
-
-### `palindrome`
-
-This function is useful in combination with `getItem` to retrieve an element from an array based on its index, but with a special behavior that alternates the direction of indexing when the end of the array is reached, forming a palindrome.
-
-```typescript
-;(index: number, length: number) => number
-```
-
-Example:
-
-```typescript
-const myArray = [1, 2, 3]
-const items = times(7, (index) => getItem(index, myArray, palindrome))
-// items = [1, 2, 3, 2, 1, 2, 3]
-```
-
----
-
-### `binaryToIndices`
-
-The binaryToIndices function converts an array of binary digits (0 or 1) to an array of indices pointing to where the digit is 1.
-
-```typescript
-(binary: Array<number>) => Array<number>
-```
-
-Example:
-
-```typescript
-const binary = [1, 0, 1, 0, 0]
-const indices = binaryToIndices(binary)
-// indices = [0, 2]
-```
+<!-- INSERT GENERATED DOCS END -->

@@ -21,6 +21,24 @@ export type BoundaryFunction = (index: number, length: number) => number
  * @param ruleset The ruleset for the cellular automaton.
  * @param boundaryFn The boundary function to use.
  * @returns The resulting sequence.
+ * @example
+ *
+ * generateSequence(10, sequence, cellularAutomata)
+ * // Returns [
+ * //  [0, 0, 0, 0, 1, 0, 0, 0],
+ * //  [0, 0, 0, 1, 1, 1, 0, 0],
+ * //  [0, 0, 1, 1, 0, 0, 1, 0],
+ * //  [0, 1, 1, 0, 1, 1, 1, 1],
+ * //  [0, 1, 0, 0, 1, 0, 0, 0],
+ * //  [1, 1, 1, 1, 1, 1, 0, 0],
+ * //  [1, 0, 0, 0, 0, 0, 1, 1],
+ * //  [0, 1, 0, 0, 0, 1, 1, 0],
+ * //  [1, 1, 1, 0, 1, 1, 0, 1],
+ * //  [0, 0, 0, 0, 1, 0, 0, 1],
+ * // ]
+ *
+ * @complexity This function has a time complexity of O(n), where n is the length of the input sequence, and
+ * a space complexity of O(n), where n is the length of the input sequence.
  */
 export const cellularAutomata = (
   sequence: Array<number>,
