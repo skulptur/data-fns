@@ -3,6 +3,19 @@
  * @param dividend The dividend to divide.
  * @param divisor The divisor to divide by.
  * @returns The remainder of dividing the dividend by the divisor.
+ * @example
+ * // Basic usage
+ * modulo(5, 3) // Returns 2
+ *
+ * // Support for negative dividends
+ * modulo(-5, -3) // Returns 2
+ *
+ * // Support for negative divisors
+ * modulo(-5, 3) // Returns -2
+ *
+ * // Support for negative dividends and divisors
+ * modulo(5, -3) // Returns -2
+ *
  */
 export const modulo = (dividend: number, divisor: number): number => {
   // Compute the remainder of dividing the absolute value of the dividend by the absolute value of the divisor.

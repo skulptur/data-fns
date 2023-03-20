@@ -4,6 +4,10 @@
  * @param index The index of the item to map.
  * @param mapFn A function that maps the item to a new value.
  * @returns A new array with the mapped item.
+ * @example
+ * const originalArray = [1, 2, 3, 4, 5]
+ * const mappedArray = mapAt(originalArray, 2, (item) => item * 2)
+ * // Returns [1, 2, 6, 4, 5]
  */
 export const mapAt = <T>(array: Array<T>, index: number, mapFn: (item: T) => T): Array<T> => {
   // Check that the index is within the bounds of the array

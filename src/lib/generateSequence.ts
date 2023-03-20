@@ -4,6 +4,9 @@
  * @param initialValue The initial value of the sequence.
  * @param iterateFn The function to apply to the initial value and each subsequent value.
  * @returns An array containing all the iterations.
+ * @example
+ * const sequence = generateSequence(5, 1, (value) => value * 2)
+ * // The resulting sequence will be [1, 2, 4, 8, 16]
  */
 export const generateSequence = <T>(
   iterations: number,

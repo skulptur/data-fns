@@ -6,6 +6,9 @@ const numSort = (a: number, b: number) => a - b
  * @param notes The number of notes in the sequence.
  * @param rotation The rotation of the sequence (default: 0).
  * @returns An array of indices representing the Euclidean rhythm sequence.
+ * @example
+ * euclideanSequencer(8, 3, 1)
+ * // Returns [1, 3, 6]
  */
 export const euclideanSequencer = (steps: number, notes: number, rotation = 0): Array<number> => {
   // Check that inputs are positive integers

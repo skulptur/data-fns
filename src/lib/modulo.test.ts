@@ -3,9 +3,13 @@ import { modulo } from './modulo'
 describe('modulo', () => {
   it('should return the remainder of dividing the dividend by the divisor', () => {
     expect(modulo(5, 3)).toBe(2)
-    expect(modulo(10, 4)).toBe(2)
+    expect(modulo(-5, -3)).toBe(2)
     expect(modulo(-5, 3)).toBe(-2)
+    expect(modulo(5, -3)).toBe(-2)
+    expect(modulo(10, 4)).toBe(2)
     expect(modulo(-10, 4)).toBe(-2)
+    expect(modulo(10, -4)).toBe(-2)
+    expect(modulo(-10, -4)).toBe(2)
   })
 
   it('should return NaN if the divisor is 0', () => {

@@ -6,6 +6,9 @@ import { euclideanSequencer } from './euclideanSequencer'
  * @param notes The number of notes in the rhythm.
  * @param rotation The rotation of the rhythm (default: 0).
  * @returns An array of indices representing the silences in the Euclidean rhythm.
+ * @example
+ * euclideanSilences(8, 3)
+ * // Returns [1, 3, 4, 6, 7]
  */
 export const euclideanSilences = (steps: number, notes: number, rotation = 0): Array<number> => {
   // Generate the Euclidean rhythm sequence using the euclideanSequencer function

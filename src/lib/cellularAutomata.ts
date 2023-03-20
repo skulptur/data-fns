@@ -13,6 +13,12 @@ export type CellularAutomataRuleset = [
 // a common rule that generates an interesting balance between chaos and order
 const ruleset110: CellularAutomataRuleset = [0, 1, 1, 1, 1, 0, 0, 0]
 
+/**
+ * A function that maps an index to a boundary condition for use for example in an array index mapping.
+ * @param index The original index.
+ * @param length The length of the sequence.
+ * @returns The mapped index in the boundary condition.
+ */
 export type BoundaryFunction = (index: number, length: number) => number
 
 /**
