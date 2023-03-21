@@ -4,11 +4,16 @@
  * @param callback The callback function to call.
  * @returns An array containing the results of each callback function call.
  * @example
- * times(5, (i) => i * 2)
- * // Returns [0, 2, 4, 6, 8]
+ * times(5)
+ * // Returns [0, 1, 2, 3, 4]
  *
+ *  times(5, (i) => i * 2)
+ * // Returns [0, 2, 4, 6, 8]
  */
-export const times = <T>(iterations: number, callback: (index: number) => T): Array<T> => {
+export const times = <T>(
+  iterations: number,
+  callback: (index: number) => T = (i) => i as T
+): Array<T> => {
   // Initialize an empty array to store the results
   const result: Array<T> = []
 

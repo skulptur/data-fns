@@ -6162,6 +6162,11 @@ onetime@^5.1.0:
   dependencies:
     mimic-fn "^2.1.0"
 
+open-simplex-noise@^2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/open-simplex-noise/-/open-simplex-noise-2.5.0.tgz#2f88539c2e3a70eb387a3609bdb2aede547bb0db"
+  integrity sha512-co7x8uWxGcgFtsJNBFqI9ylq+5Isotz2hZR7dsD5Sl+RDPGBeMEG41KAfF+5gF10ksi9Pg6DNpMHEoyTKLbejQ==
+
 opener@^1.5.2:
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/opener/-/opener-1.5.2.tgz#5d37e1f35077b9dcac4301372271afdeb2a13598"
@@ -6968,6 +6973,14 @@ queue-microtask@^1.2.2:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/queue-microtask/-/queue-microtask-1.2.3.tgz#4929228bbc724dfac43e0efb058caf7b6cfb6243"
   integrity sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==
+
+random-fns@^0.1.8:
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/random-fns/-/random-fns-0.1.8.tgz#5b24f675488252b81740b3c1db0f2f56c798591a"
+  integrity sha512-pCpzXfDAyglGIUsHKPuqEWMNVjMvfrds+XM0Tv12REgmnXDKunN8rklhcfs8NGHHkrWLDYikInRqnNVzdS44RA==
+  dependencies:
+    open-simplex-noise "^2.5.0"
+    unit-fns "^0.1.7"
 
 randomatic@^3.0.0:
   version "3.1.1"
@@ -8554,6 +8567,11 @@ unit-fns@^0.1.6:
   version "0.1.7"
   resolved "https://registry.yarnpkg.com/unit-fns/-/unit-fns-0.1.7.tgz#7bf2663f84ff8fdc54cb976320a0b86c3a222e0d"
   integrity sha512-A6fT2bPCKjryr//T8X+euo2g9e5VRGIwOmLHb9bSasMBdKWQ+By3OwXkwTJbK8C6kUmJnbSCcJCNxJkkmKS15A==
+
+unit-fns@^0.1.7:
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/unit-fns/-/unit-fns-0.1.9.tgz#975f20a779cbd7a0ec9eeb3efde5c572534f7edb"
+  integrity sha512-bxceIkc7n2icQmgQx8u3vX98ZBIcpL2YJDKIsWDFK7ZX1TTuLvtNWVNd9/oARCDHd7QQRzwc+zxabO0HSK8X0w==
 
 universalify@^0.1.0:
   version "0.1.2"

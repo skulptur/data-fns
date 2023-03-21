@@ -25,9 +25,9 @@ console.log(times(5, index => index * 2));
 <!-- toc -->
 
 - [`times` (function)](#times-function)
+- [`generateSequence` (function)](#generatesequence-function)
 - [`mapAt` (function)](#mapat-function)
 - [`getItem` (function)](#getitem-function)
-- [`generateSequence` (function)](#generatesequence-function)
 - [`cyclic` (function)](#cyclic-function)
 - [`palindrome` (function)](#palindrome-function)
 - [`modulo` (function)](#modulo-function)
@@ -36,6 +36,10 @@ console.log(times(5, index => index * 2));
 - [`cellularAutomata` (function)](#cellularautomata-function)
 - [`euclideanSequencer` (function)](#euclideansequencer-function)
 - [`euclideanSilences` (function)](#euclideansilences-function)
+- [`TransitionMatrix` (type)](#transitionmatrix-type)
+- [`createTransitionMatrix` (function)](#createtransitionmatrix-function)
+- [`getNextState` (function)](#getnextstate-function)
+- [`markovSequence` (function)](#markovsequence-function)
 - [`patternChunks` (function)](#patternchunks-function)
 - [`binaryToIndices` (function)](#binarytoindices-function)
 - [`indicesToBinary` (function)](#indicestobinary-function)
@@ -56,6 +60,21 @@ Calls a callback function a specified number of times and returns the results in
 ```tsx
 times(5, i => i * 2);
 // Returns [0, 2, 4, 6, 8]
+```
+
+### `generateSequence` (function)
+
+Generates a sequence of values by applying a given function to an initial value for a specified number of iterations.
+
+**Parameters:**
+
+- iterations (`number`) - The number of iterations to perform.
+- initialValue (`T`) - The initial value of the sequence.
+- iteratorFn (`(value: T) => T`) - The function to apply to the initial value and each subsequent value.
+
+```tsx
+generateSequence(5, 1, value => value * 2);
+// Returns [1, 2, 4, 8, 16]
 ```
 
 ### `mapAt` (function)
@@ -89,21 +108,6 @@ const array = ['a', 'b', 'c', 'd', 'e'];
 const indexMapFn = (index, length) => (index * 2) % length;
 getItem(2, array, indexMapFn);
 // Returns 'e'
-```
-
-### `generateSequence` (function)
-
-Generates a sequence of values by applying a given function to an initial value for a specified number of iterations.
-
-**Parameters:**
-
-- iterations (`number`) - The number of iterations to perform.
-- initialValue (`T`) - The initial value of the sequence.
-- iteratorFn (`(value: T) => T`) - The function to apply to the initial value and each subsequent value.
-
-```tsx
-generateSequence(5, 1, value => value * 2);
-// Returns [1, 2, 4, 8, 16]
 ```
 
 ### `cyclic` (function)
@@ -222,6 +226,34 @@ Generates a sequence of indices representing the "silences" (i.e. rests) in a Eu
 euclideanSilences(8, 3);
 // Returns [1, 3, 4, 6, 7]
 ```
+
+### `TransitionMatrix` (type)
+
+### `createTransitionMatrix` (function)
+
+Creates a transition matrix from an array of numbers.
+
+**Parameters:**
+
+- data (`number[]`) - The array of numbers to create the transition matrix from.
+
+### `getNextState` (function)
+
+Gets the next state based on the current state and the transition matrix.
+
+**Parameters:**
+
+- currentState (`number`) - The current state.
+- transitionMatrix (`TransitionMatrix`) - The transition matrix.
+
+### `markovSequence` (function)
+
+Generates a sequence of numbers based on the input data and length.
+
+**Parameters:**
+
+- data (`number[]`) - The input data to generate the sequence from.
+- length (`number`) - The length of the sequence to generate.
 
 ### `patternChunks` (function)
 
