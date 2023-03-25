@@ -1,9 +1,15 @@
-export type TransitionMatrix = Array<number>[]
+export type TransitionMatrix = Array<Array<number>>
 
 /**
  * Creates a transition matrix from an array of numbers.
  * @param {Array<number>} data - The array of numbers to create the transition matrix from.
  * @returns {TransitionMatrix} The transition matrix created from the input array.
+ * @example
+ * createTransitionMatrix([0, 1, 0, 1, 1, 0, 1])
+ * // Returns [
+ * //   [0, 1],
+ * //   [0.5, 0.5]
+ * // ]
  */
 export const createTransitionMatrix = (data: Array<number>): TransitionMatrix => {
   const matrix: TransitionMatrix = []

@@ -12,7 +12,7 @@
  */
 export const times = <T>(
   iterations: number,
-  callback: (index: number) => T = (i) => i as T
+  callback: (index: number) => T = (i) => (i as unknown) as T
 ): Array<T> => {
   // Initialize an empty array to store the results
   const result: Array<T> = []

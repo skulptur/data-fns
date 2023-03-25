@@ -12,7 +12,7 @@ const numSort = (a: number, b: number) => a - b
  */
 export const euclideanSequencer = (steps: number, notes: number, rotation = 0): Array<number> => {
   // Check that inputs are positive integers
-  if (steps < 0 || notes < 0) {
+  if (steps < 0 || notes < 0 || !Number.isInteger(steps) || !Number.isInteger(notes)) {
     throw new Error('Inputs must be positive integers')
   }
 
